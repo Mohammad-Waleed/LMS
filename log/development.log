@@ -1,0 +1,125 @@
+  [1m[35m (861.3ms)[0m  [1m[35mCREATE DATABASE "LMS_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (979.1ms)[0m  [1m[35mCREATE DATABASE "LMS_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (42.3ms)[0m  [1m[35mCREATE DATABASE "LMS_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "LMS_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (152.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (119.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8798070331795773840)[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateActiveStorageTables (20200617155922)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (86.3ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200617155922_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (42.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  ↳ db/migrate/20200617155922_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (112.4ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  ↳ db/migrate/20200617155922_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (38.9ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  ↳ db/migrate/20200617155922_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (43.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/migrate/20200617155922_create_active_storage_tables.active_storage.rb:16
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200617155922"]]
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (21.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to DeviseCreateUsers (20200617160125)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (95.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "type" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200617160125_devise_create_users.rb:5
+  [1m[35m (43.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20200617160125_devise_create_users.rb:40
+  [1m[35m (42.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20200617160125_devise_create_users.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200617160125"]]
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (33.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateAdmin (20200617160137)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (53.1ms)[0m  [1m[35mCREATE TABLE "admins" ("id" bigserial primary key, "library_id_id" bigint)[0m
+  ↳ db/migrate/20200617160137_create_admin.rb:3
+  [1m[35m (31.6ms)[0m  [1m[35mCREATE  INDEX  "index_admins_on_library_id_id" ON "admins"  ("library_id_id")[0m
+  ↳ db/migrate/20200617160137_create_admin.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200617160137"]]
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (21.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateManager (20200617160143)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (53.9ms)[0m  [1m[35mCREATE TABLE "managers" ("id" bigserial primary key, "status" integer DEFAULT 0 NOT NULL, "library_id_id" bigint)[0m
+  ↳ db/migrate/20200617160143_create_manager.rb:3
+  [1m[35m (53.3ms)[0m  [1m[35mCREATE  INDEX  "index_managers_on_library_id_id" ON "managers"  ("library_id_id")[0m
+  ↳ db/migrate/20200617160143_create_manager.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200617160143"]]
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (9.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateIssuer (20200617160148)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (79.2ms)[0m  [1m[35mCREATE TABLE "issuers" ("id" bigserial primary key, "fname" character varying NOT NULL, "lname" character varying NOT NULL, "balance" integer DEFAULT 0 NOT NULL, "status" integer DEFAULT 0 NOT NULL)[0m
+  ↳ db/migrate/20200617160148_create_issuer.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200617160148"]]
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (17.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateLibrary (20200617160155)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (80.5ms)[0m  [1m[35mCREATE TABLE "libraries" ("id" bigserial primary key, "fine" decimal DEFAULT 0 NOT NULL)[0m
+  ↳ db/migrate/20200617160155_create_library.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200617160155"]]
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (16.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateBook (20200617160200)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (80.9ms)[0m  [1m[35mCREATE TABLE "books" ("id" bigserial primary key, "title" character varying NOT NULL, "isbn" character varying NOT NULL, "author" character varying NOT NULL, "year" integer NOT NULL, "genre" character varying NOT NULL, "no_of_copies" integer DEFAULT 0 NOT NULL, "status" integer DEFAULT 0 NOT NULL, "library_id_id" bigint)[0m
+  ↳ db/migrate/20200617160200_create_book.rb:3
+  [1m[35m (43.0ms)[0m  [1m[35mCREATE  INDEX  "index_books_on_library_id_id" ON "books"  ("library_id_id")[0m
+  ↳ db/migrate/20200617160200_create_book.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200617160200"]]
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (15.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateBookHistory (20200617160209)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (109.6ms)[0m  [1m[35mCREATE TABLE "book_histories" ("id" bigserial primary key, "book_id_id" bigint NOT NULL, "issuer_id_id" bigint NOT NULL, "start_date" character varying NOT NULL, "end_date" character varying NOT NULL)[0m
+  ↳ db/migrate/20200617160209_create_book_history.rb:3
+  [1m[35m (49.4ms)[0m  [1m[35mCREATE  INDEX  "index_book_histories_on_book_id_id" ON "book_histories"  ("book_id_id")[0m
+  ↳ db/migrate/20200617160209_create_book_history.rb:3
+  [1m[35m (43.0ms)[0m  [1m[35mCREATE  INDEX  "index_book_histories_on_issuer_id_id" ON "book_histories"  ("issuer_id_id")[0m
+  ↳ db/migrate/20200617160209_create_book_history.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200617160209"]]
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (13.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-17 16:12:55.301267"], ["updated_at", "2020-06-17 16:12:55.301267"]]
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (9.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8798070331795773840)[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/dev/.rvm/gems/ruby-2.6.3/bin/rake:23

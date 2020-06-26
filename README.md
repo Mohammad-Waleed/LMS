@@ -1,5 +1,6 @@
 # README
 LMS has the following modules
+
     1. We have a Library with a Fine amount. (only admin can access)
     2. Can have multiple libraries.
     3. One manager cannot be an employee of any other library.

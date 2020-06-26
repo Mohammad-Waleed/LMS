@@ -52,8 +52,11 @@ class BooksController<ApplicationController
 
   def issue_book_request
     @book=Book.find(params[:id])
-    if !BookHistory.where(book_id:params[:id],issuer_id:current_user.id,end_date:nil)
-      flash[:notice]="You have already requested or issued this book"
+    if @book.unavailable?
+      flash[:alert]="Sorry the book is not available :("
+      redirect_to current_user
+    elsif !BookHistory.where(book_id:params[:id],issuer_id:current_user.id,end_date:nil)
+      flash[:alert]="You have already requested or issued this book!"
       redirect_to current_user
     else
       @history=BookHistory.create(book_id:@book.id,issuer_id:current_user.id)
@@ -77,6 +80,10 @@ class BooksController<ApplicationController
     else
       render 'show'
     end
+  end
+
+  def search_book
+    @books=Book.where("LOWER(#{params[:search_key]}) LIKE LOWER(?)", "%#{params[:book][:title]}%")
   end
 
   def return_book

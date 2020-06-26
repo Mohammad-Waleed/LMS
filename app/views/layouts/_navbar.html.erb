@@ -36,11 +36,11 @@
             <%= link_to "Sign Out",destroy_user_session_path, method: :delete,class:"btn btn-danger text-light nav-link"%>
           </li>
         </ul>
-
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search Book" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Book</button>
-        </form>
+        <%= form_for :book, url:search_book_path,method:'get',html: {class: 'form-inline my-0 my-lg-0'} do |f| %>
+          <%= select_tag :search_key,options_for_select([['By Author','Author'],['By ISBN','ISBN'],['By Title','title']]),class:"form-control my-0 my-sm-0"%>
+          <%= f.text_field :title,placeholder:"Search Book" ,class:"form-control mr-sm-0" %>
+          <%= f.submit "Search" ,class:"btn btn-outline-success my-0 my-sm-0" %>
+        <%end%>
       <%end%>
   </div>
 </nav>

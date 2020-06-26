@@ -7,12 +7,11 @@ class IssuersController < ApplicationController
   end
 
   def show
-    if current_user.type=="Issuer"
-      @books=Book.where(library_id:current_user.library_id)
-    elsif current_user.type=="Admin"
+    if current_user.type=="Admin"
       @history=BookHistory.where(issuer_id: @issuer_id,end_date:[nil,false])
     end
     @issued_books=BookHistory.where(issuer_id:@issuer.id,end_date: nil).where.not(start_date: nil)
+    @books=Book.where(library_id:@issuer.library_id)
   end
 
   def edit

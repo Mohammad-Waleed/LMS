@@ -39,7 +39,7 @@
           <th>Return Book</th>
         <%end%>
       </tr>
-      <% if @issued_books%>
+      <% if @issued_books!=nil%>
         <% @issued_books.each do |hist| %>
           <tr>
           <% days = (Time.now - Time.parse(hist.start_date)).to_i/(3600*24)%>

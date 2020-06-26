@@ -1,8 +1,4 @@
 # README
-LMS has following Modules
-
-We have a Library with a Fine amount. (only admin can access)
-
 
     1. We have a Library with a Fine amount. (only admin can access)
     2. Can have multiple libraries.

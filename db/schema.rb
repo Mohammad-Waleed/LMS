@@ -36,18 +36,13 @@ ActiveRecord::Schema.define(version: 2020_06_17_160209) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "admins", force: :cascade do |t|
-    t.bigint "library_id_id"
-    t.index ["library_id_id"], name: "index_admins_on_library_id_id"
-  end
-
   create_table "book_histories", force: :cascade do |t|
-    t.bigint "book_id_id", null: false
-    t.bigint "issuer_id_id", null: false
-    t.string "start_date", null: false
-    t.string "end_date", null: false
-    t.index ["book_id_id"], name: "index_book_histories_on_book_id_id"
-    t.index ["issuer_id_id"], name: "index_book_histories_on_issuer_id_id"
+    t.bigint "book_id", null: false
+    t.bigint "issuer_id", null: false
+    t.string "start_date"
+    t.string "end_date"
+    t.index ["book_id"], name: "index_book_histories_on_book_id"
+    t.index ["issuer_id"], name: "index_book_histories_on_issuer_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -58,25 +53,12 @@ ActiveRecord::Schema.define(version: 2020_06_17_160209) do
     t.string "genre", null: false
     t.integer "no_of_copies", default: 0, null: false
     t.integer "status", default: 0, null: false
-    t.bigint "library_id_id"
-    t.index ["library_id_id"], name: "index_books_on_library_id_id"
-  end
-
-  create_table "issuers", force: :cascade do |t|
-    t.string "fname", null: false
-    t.string "lname", null: false
-    t.integer "balance", default: 0, null: false
-    t.integer "status", default: 0, null: false
+    t.bigint "library_id"
+    t.index ["library_id"], name: "index_books_on_library_id"
   end
 
   create_table "libraries", force: :cascade do |t|
     t.decimal "fine", default: "0.0", null: false
-  end
-
-  create_table "managers", force: :cascade do |t|
-    t.integer "status", default: 0, null: false
-    t.bigint "library_id_id"
-    t.index ["library_id_id"], name: "index_managers_on_library_id_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -85,10 +67,17 @@ ActiveRecord::Schema.define(version: 2020_06_17_160209) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "type", null: false
+    t.string "fname"
+    t.string "lname"
+    t.integer "balance", default: 0
+    t.integer "status", default: 0
+    t.string "type"
+    t.integer "approval", default: 0
+    t.bigint "library_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["library_id"], name: "index_users_on_library_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

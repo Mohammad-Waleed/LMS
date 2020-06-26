@@ -8,7 +8,7 @@ class CreateBook < ActiveRecord::Migration[5.2]
       t.string :genre        ,null: false
       t.integer :no_of_copies,null: false,default: 0
       t.integer :status      ,null: false,default: 0
-      t.references :library_id
+      t.references :library
     end
   end
 end

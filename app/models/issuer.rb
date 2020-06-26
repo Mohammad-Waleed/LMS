@@ -1,5 +1,6 @@
 class Issuer < User
   has_one_attached :image
+  has_many :book_histories
 
   enum status:[:active , :inactive]
 

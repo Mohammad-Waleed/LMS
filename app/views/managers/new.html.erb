@@ -1,0 +1,32 @@
+<div class="container jumbotron col-md-4">
+  <h2 class="text-center">Create New Manager</h2>
+  <%= form_for @manager do |f| %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "new-password",class:"form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control" %>
+    </div>
+
+    <div class="form-group">
+    <%= f.file_field :image ,class:"btn btn-primary form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :status %>
+      <%= f.select( :status , options_for_select([['Active','active'],['Inactive','inactive']]),{},{:class=>"form-control"})%>
+    </div>
+  <br>
+    <div class="form-group text-center">
+      <%= f.submit "Create",class:"btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

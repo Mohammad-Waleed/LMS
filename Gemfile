@@ -8,6 +8,10 @@ gem 'rails', '~> 5.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 
+gem 'bootstrap', '~> 4.0'
+
+gem 'jquery-rails'
+
 gem 'devise'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

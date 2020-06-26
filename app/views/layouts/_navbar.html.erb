@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg  navbar-light bg-light">
+  <%= link_to "Libraries",libraries_path,class:"navbar-brand"%>
+  <div class="collapse navbar-collapse ">
+    <ul class="navbar-nav mr-auto ">
+      <li class="nav-item">
+        <%= link_to "Home",current_user,class:"nav-link"%>
+      </li>
+
+      <% if current_user.type=="Admin"%>
+          <li class="nav-item">
+            <%= link_to "Managers",managers_path,class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Issuers",issuers_path,class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+             <%= link_to "Change Fine Amount", edit_library_path(id: current_user.library_id),class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Create New Manager" , new_manager_path ,class:"nav-link" %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to 'Sign Out' , destroy_user_session_path , method: :delete,class:"btn btn-danger text-light nav-link"%>
+          </li>
+        </ul>
+      <%else%>
+          <li class="nav-item">
+            <%= link_to "View Books",books_path,class:"nav-link"%>
+          </li>
+          <%if current_user.type=="Manager"%>
+            <li>
+              <%= link_to 'Create new Book', new_book_path ,class:"nav-link"%>
+            </li>
+          <%end%>
+          <li class="nav-item">
+            <%= link_to "Sign Out",destroy_user_session_path, method: :delete,class:"btn btn-danger text-light nav-link"%>
+          </li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search Book" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Book</button>
+        </form>
+      <%end%>
+  </div>
+</nav>

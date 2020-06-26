@@ -29,4 +29,4 @@ Book:
   It has title, isbn, author, year, genre, number of copies, picture(can be more than 1) and status.
   It will always be issued for 1 month.
   Everybook should have some history like it is issued to this user from this date to this date.
-  Issuers and Managers can search for books.
+  Issuers and Managers can search for books

@@ -43,7 +43,7 @@ class IssuersController < ApplicationController
     @issuer=Issuer.find(params[:id])
     if @issuer.unapproved?
       @issuer.update(approval:'approved')
-      IssuerMailer.with(issuer: @issuer).welcome.deliver_later
+      IssuerMailer.welcome(@issuer).deliver_now!
     end
     redirect_to root_path
   end

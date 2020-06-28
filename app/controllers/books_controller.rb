@@ -55,7 +55,7 @@ class BooksController<ApplicationController
     if @book.unavailable?
       flash[:alert]="Sorry the book is not available :("
       redirect_to current_user
-    elsif !BookHistory.where(book_id:params[:id],issuer_id:current_user.id,end_date:nil)
+    elsif BookHistory.where(book_id:params[:id],issuer_id:current_user.id,end_date:nil).count>0
       flash[:alert]="You have already requested or issued this book!"
       redirect_to current_user
     else
@@ -76,6 +76,7 @@ class BooksController<ApplicationController
       @issuer=Issuer.find(@history.issuer_id)
       @issuer.book_histories << @history
       flash[:notice] = "You have successfully issued book!."
+      IssuerMailer.book_issue_success(@history.issuer_id,@history.book_id).deliver_now!
       redirect_to current_user
     else
       render 'show'

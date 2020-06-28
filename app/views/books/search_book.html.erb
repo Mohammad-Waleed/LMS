@@ -1,6 +1,6 @@
-<h1 class="text-center">Searched Books</h1>
-<% if @books%>
-  <table class="table table-bordered table-hover container text-center">
+<% if @books.count>0 %>
+  <h1 class="text-center">Searched Books</h1>
+  <table class="table  table-bordered table-hover container text-center">
     <tr class="bg-secondary"><th>ISBN</th><th>Title</th><th>Author</th><th>Year</th><th>No of Copies</th><th>Image</th><th>View Book</th></tr>
     <% @books.each do |book|%>
       <tr>
@@ -15,6 +15,6 @@
     <%end%>
   </table>
 <%else%>
-  <div class="alert alert-danger text-center">No Books found</div>
+  <div class="alert alert-danger text-center">No Books found!</div>
 <%end%>
 

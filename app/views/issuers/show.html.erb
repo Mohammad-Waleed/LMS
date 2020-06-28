@@ -7,7 +7,7 @@
   <div class="col col-md-1"></div>
   <div class="col col-md-3">
     <table class="text-center table table-striped table-bordered">
-      <tr><th class="bg-secondary" colspan="2">Details</th></tr>
+      <tr><th class="bg-secondary " colspan="2">Details</th></tr>
       <tr>
         <td>First Name</td>
         <td><%= @issuer.fname%></td>
@@ -25,7 +25,7 @@
   <div class="col col-md-4"></div>
   <div class="col col-md-2">
     <% if @issuer.image.attached? %>
-      <%= image_tag @issuer.image, size: '200x180' %>
+      <%= image_tag @issuer.image, size:"200x220",class:"rounded" %>
     <% end %>
   </div>
 </div>

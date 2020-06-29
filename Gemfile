@@ -12,6 +12,8 @@ gem 'bootstrap', '~> 4.0'
 
 gem 'jquery-rails'
 
+gem 'client_side_validations'
+
 gem 'devise'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

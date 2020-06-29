@@ -17,14 +17,12 @@ class User < ApplicationRecord
     end
   end
 
-
   def inactive_message
     if self.type == "Issuer" && self.unapproved?
       "Sorry, this account is not approved yet."
     else
       "Sorry, this account is Inactive."
     end
-
   end
 
 private
@@ -34,13 +32,4 @@ private
       self.type = "Issuer"
     end
   end
-
-  def get_key
-    if where(email:self.email).type == "Issuer"
-      [:email]
-    else
-      [:email,:library_id]
-    end
-  end
-
 end

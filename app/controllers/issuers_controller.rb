@@ -11,6 +11,7 @@ class IssuersController < ApplicationController
       @history=BookHistory.where(issuer_id: @issuer_id,end_date:[nil,false])
     end
     @issued_books=BookHistory.where(issuer_id:@issuer.id,end_date: nil).where.not(start_date: nil)
+    @fine=Library.find(@issuer.library_id).fine
     @books=Book.where(library_id:@issuer.library_id)
   end
 
@@ -18,7 +19,7 @@ class IssuersController < ApplicationController
   end
 
   def update
-    if User.update(params[:id],parameters)
+    if Issuer.update(params[:id],parameters)
       redirect_to issuers_path
     else
       render 'edit'
@@ -27,7 +28,7 @@ class IssuersController < ApplicationController
 
   def destroy
     @issuer.destroy
-    redirect_to current_user
+    redirect_to issuers_path
   end
 
   def change_status
@@ -61,6 +62,6 @@ private
   end
 
   def parameters
-    params.require(:issuer).permit(:email,:password,:password_confirmation,:current_password,:image,:fname,:lname,:no_of_copies,:status)
+    params.require(:issuer).permit(:email,:password,:image,:fname,:lname,:balance,:status)
   end
 end

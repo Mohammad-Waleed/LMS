@@ -1,5 +1,4 @@
 class IssuerMailer < ApplicationMailer
-
   def welcome(issuer)
     @issuer=issuer
     mail(to:@issuer.email,subject:"Sign Up Confirmation")

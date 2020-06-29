@@ -3,7 +3,7 @@ class ManagersController<ApplicationController
   before_action :find_manager,only:[:show,:edit,:destroy,:change_status]
 
   def index
-    @managers = Manager.where(library_id: current_user.library_id)
+    @managers = Manager.where(library_id: current_user.library_id).order("created_at ASC")
   end
 
   def show
@@ -39,7 +39,7 @@ class ManagersController<ApplicationController
 
   def destroy
     @manager.destroy
-    redirect_to current_user
+    redirect_to managers_path
   end
 
   def change_status
@@ -54,7 +54,7 @@ class ManagersController<ApplicationController
 private
 
   def manager_params
-    params.require(:manager).permit(:email,:password,:password_confirmation,:status,:image)
+    params.require(:manager).permit(:email,:status,:image)
   end
 
   def find_manager

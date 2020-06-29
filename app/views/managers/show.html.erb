@@ -10,7 +10,7 @@
           <td><%= link_to book.issuer_id,issuer_path(book.issuer_id) %></td>
           <td><%= link_to book.book_id,book_path(book.book_id) %></td>
           <td><%= link_to "Approve Request",issue_book_path(book),method: :post %></td>
-          <td><%= link_to "Delete",book_history_path(book),method: :delete %></td>
+          <td><%= link_to "Reject Request",book_history_path(book),method: :delete %></td>
         </tr>
       <%end%>
     </table>

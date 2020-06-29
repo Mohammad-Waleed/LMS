@@ -1,6 +1,6 @@
 <div class="container col-md-3 ">
   <h2 class="text-center">Log In</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name),validate: true) do |f| %>
     <div class="form-group">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>

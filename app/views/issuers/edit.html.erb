@@ -1,6 +1,6 @@
 <div class="jumbotron container col-md-3">
   <h1 class="text-center">Edit Issuer</h1>
-  <%= form_for @issuer do |f|%>
+  <%= form_for @issuer,validate: true do |f|%>
     <div class="form-group">
       <%= f.label :email%>
       <%= f.text_field :email,class:"form-control" ,required:true%>

@@ -1,7 +1,7 @@
 <div class="container jumbotron pt-3 col-md-3">
   <h2 class="text-center">Edit <%= resource_name.to_s.humanize %></h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name),validate: true, html: { method: :put }) do |f| %>
+    <%= #render "devise/shared/error_messages", resource: resource %>
 
     <div class="form-group">
       <%= f.label :email %>
